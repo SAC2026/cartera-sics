@@ -23,11 +23,10 @@ function consultar() {
         },
         body: JSON.stringify({ documento })
     })
-    .then(res => res.json())
-    .then(data => {
-        document.getElementById("resultado").innerText =
-            JSON.stringify(data, null, 2);
-    })
+ .then(res => res.text())
+.then(data => {
+    document.getElementById("resultado").innerText = data;
+})
     .catch(err => {
         document.getElementById("resultado").innerText = "Error: " + err;
     });
