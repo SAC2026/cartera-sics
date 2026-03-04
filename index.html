@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Consulta Cartera SICS</title>
+</head>
+<body>
+
+<h2>Consulta Cartera</h2>
+
+<input type="text" id="doc" placeholder="Documento cliente">
+<button onclick="consultar()">Consultar</button>
+
+<pre id="resultado"></pre>
+
+<script>
+function consultar() {
+    const documento = document.getElementById("doc").value;
+
+    fetch("/api/consultar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ documento })
+    })
+    .then(res => res.json())
+    .then(data => {
+        document.getElementById("resultado").innerText =
+            JSON.stringify(data, null, 2);
+    })
+    .catch(err => {
+        document.getElementById("resultado").innerText = "Error: " + err;
+    });
+}
+</script>
+
+</body>
+</html>
