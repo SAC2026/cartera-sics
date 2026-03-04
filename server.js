@@ -9,7 +9,7 @@ let tokenExpira = 0;
 
 async function obtenerToken() {
     const response = await axios.post(
-        "https://apoyo.sics.com.co/PRUEBAS_SICS360/api/InicioSesion/IniciarSesion",
+        "https://apoyo.sics.com.co/SICS360/api/InicioSesion/IniciarSesion",
         {
             Usuario: "ApoyoSICS ",
             Clave: "#Apoyo2024",
@@ -29,7 +29,7 @@ app.post("/consultar", async (req, res) => {
         }
 
         const response = await axios.post(
-            "https://apoyo.sics.com.co/PRUEBAS_SICS360/api/ConsultarCartera/ConsultarCarteraCliente",
+            "https://apoyo.sics.com.co/SICS360/api/ConsultarCartera/ConsultarCarteraCliente",
             {
                 DocumentoCliente: req.body.documento
             },
